@@ -1,0 +1,270 @@
+    <!-- OFF-SCREEN CONTACT FORM  -->
+    // //   setupContactForm();
+      
+    // // // --- CONTACT FORM ---
+    // // function setupContactForm() {
+    // //   const contactButtons = document.querySelectorAll('.contact-button');
+    // //   const contactForm = document.querySelector('.contact-form');
+    // //   const contactFormCloseButton = document.querySelector('.contact-form-close-button');
+
+    // //   // Previous listeners are removed to prevent duplicates
+    // //   contactButtons.forEach(btn => btn.replaceWith(btn.cloneNode(true)));
+    // //   if (contactFormCloseButton) contactFormCloseButton.replaceWith(contactFormCloseButton.cloneNode(true));
+
+    // //   // Re-query after cloning
+    // //   const updatedContactButtons = document.querySelectorAll('.contact-button');
+    // //   const updatedContactFormCloseButton = document.querySelector('.contact-form-close-button');
+
+    // //   // Open/close listeners
+    // //   updatedContactButtons.forEach(btn => {
+    // //     btn.addEventListener('click', () => {
+    // //       if (contactForm) contactForm.classList.toggle('active');
+    // //       console.log("Contact form toggled");
+    // //     });
+    // //   });
+
+    // //   if (updatedContactFormCloseButton) {
+    // //     updatedContactFormCloseButton.addEventListener('click', () => {
+    // //       if (contactForm) contactForm.classList.remove('active');
+    // //       console.log("Contact form closed");
+    // //     });
+    // //   }
+    // // }
+
+    <!-- HEADER BACKGROUND COLOR CHANGE ON SCROLL -->
+    //   function handleScroll() {
+    //     const scrollThreshold = (window.innerHeight < 600) ? window.innerHeight - 150
+    //                         : (window.innerHeight < 800) ? window.innerHeight - 80
+    //                         : window.innerHeight - 100;
+    //     if (window.scrollY > scrollThreshold) {
+    //       document.body.classList.add('scrolled');
+    //       console.log("Scrolled class added");
+    //     } else {
+    //       document.body.classList.remove('scrolled');
+    //       console.log("Scrolled class removed");
+    //     }
+    //   }
+    //   window.addEventListener('scroll', handleScroll);
+    //   window.addEventListener('resize', handleScroll);
+    //   handleScroll();
+
+
+    <!-- APPEAR / DISAPPEAR HEADER ELEMENTS ON HOVER -->
+
+      <header>
+            <nav>
+            <a id="nav-bar-RUFUS-DESIGN">RUFUS DESIGN</a>
+
+            <div class="nav-middle">
+                <a href="/editorial.html">OVERVIEW</a>
+                <a href="/editorial.html">SELECTED</a>
+            </div>
+
+            <span class="spacer" style="flex:1;"></span>
+
+            <a id="about-page-About-button" href="/about.html">ABOUT</a>
+            </nav>
+        </header>
+
+      /* Container layout with spacing */
+    .nav-middle {
+      display: flex;
+      gap: 2rem; /* space between links */
+    }
+    /* Initial hidden state */
+    .nav-middle a {
+      /*transform: translateX(-50px);*/ /*better without this line???*/
+      opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      position: relative;
+    }
+    /* Staggered delays */
+    .nav-middle a:nth-child(1) { transition-delay: 0s; }
+    .nav-middle a:nth-child(2) { transition-delay: 0.1s; }
+    .nav-middle a:nth-child(3) { transition-delay: 0.2s; }
+    .nav-middle a:nth-child(4) { transition-delay: 0.3s; }
+    /* Hover the container AND logo to reveal links */
+    #nav-bar-RUFUS-DESIGN:hover ~ .nav-middle a,
+    .nav-middle:hover a {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+
+    <!-- TYPEWRITER ANIMATION -->
+
+    // document.addEventListener("DOMContentLoaded", function () {
+    //   const textArray = ["Digital Media ", "Advertising ", "Graphic ", "Editorial "];
+    //   let currentIndex = 0;
+    //   let currentText = "";
+    //   let isDeleting = false; 
+    //   let speed = 250; //Typing Speed
+
+    //   function typeEffect(){
+    //     const fullText = textArray[currentIndex];
+    //     currentText = isDeleting
+    //     ? fullText.substring(0, currentText.length - 1)
+    //     : fullText.substring(0, currentText.length + 1);
+
+    //   document.getElementById("typewriter-animation").innerText = currentText;
+
+    //   if (!isDeleting && currentText === fullText) {
+    //     isDeleting = true;
+    //     speed = 2300; //Pause before deletion (waiting for the "RUFUSDESIGN" to finish appearing)
+    //   } else if (isDeleting && currentText === "") {
+    //     isDeleting = false;
+    //     currentIndex = (currentIndex + 1) % textArray.length;
+    //   } else {
+    //       speed = isDeleting ? 50 : 150;
+    //   }
+
+    //   setTimeout(typeEffect, speed);
+    // }
+
+    // typeEffect();
+    // });
+
+
+
+    <!-- SLIDY ARROW -->
+        <a id="about-button" class="btn-arrow" href="about.html">
+              <span class="about-arrow">→</span>
+              <span class="text">See more</span>
+        </a>
+          #about-button {
+            margin-top: 20px;
+          }
+          .btn-arrow {
+            width: 150px;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            background: none;
+            font-size: 1.2rem;
+            font-family: inherit;
+            cursor: pointer;
+            padding: 20px 30px;
+            border: none;
+          }
+          /* both stacked in the same spot */
+          .btn-arrow .about-arrow,
+          .btn-arrow .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.4s ease, opacity 0.4s ease;
+            white-space: nowrap;
+            font-family: josephine;
+            color: #000;
+          }
+          /* initial states */
+          .btn-arrow .about-arrow {
+            opacity: 1;
+          }
+          .btn-arrow .text {
+            opacity: 0;
+            transform: translate(-150%, -50%); /* off to the left */
+          }
+          /* hover states */
+          .btn-arrow:hover .about-arrow {
+            opacity: 0;
+            transform: translate(150%, -50%); /* slide to right */
+          }
+          .btn-arrow:hover .text {
+            opacity: 1;
+            transform: translate(-50%, -50%); /* slide into center */
+          }
+          /*HOME - ABOUT SECTION - MOBILE*/
+          @media screen and (max-width: 768px) {
+            .about-text p {
+              font-size: 15px;
+            }
+            .about-img img {
+              width: 150%;
+          }
+          }
+
+
+
+    <!-- MOBILE SWIPE -->
+    if (galleryImgContainer) {
+      let touchStartX = 0;
+      let touchEndX = 0;
+      const swipeThreshold = 50;
+      galleryImgContainer.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+      galleryImgContainer.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diffX = touchStartX - touchEndX;
+        if (Math.abs(diffX) > swipeThreshold) {
+          currentIndex = (diffX > 0) ? (currentIndex + 1) % currentGallery.length
+                                    : (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+          updateModal();
+        }
+      });
+    }
+
+
+
+    
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+/// SWUP TRANSITION CSS //
+
+.transition-fade::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: black; */
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+/* Overlay fades in when leaving */
+html.is-leaving .transition-fade::before {
+  opacity: 1;
+}
+
+/* Overlay fades out when new page is ready */
+html.is-changing .transition-fade::before {
+  opacity: 0;
+}
+
+
+/* ---------- Base page transition ---------- */
+.transition-fade {
+  opacity: 1;                  /* start invisible */
+  transition: 1000ms;
+  transform: translateY(0);
+  transform-origin: bottom;
+}
+
+/* When new page is changing in */
+html.is-animating .transition-fade {
+  /* background-color: #000; */
+  transform: translateY(100%);                  /* fade in */
+}
+
+/* When leaving the page (optional, can fade out) */
+html.is-leaving .transition-fade {
+  opacity: 0;                  /* fade out if you like */
+  transform: translateY(0);
+}
