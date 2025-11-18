@@ -191,6 +191,7 @@ opacity:1;
 #about-seiko-cartoon img {
   width: 13vw;
   margin-top: 60vh;
+  cursor: pointer;
 }
 /* mobile */
 @media (max-width: 768px) { 
@@ -198,4 +199,33 @@ opacity:1;
   width: 53vw;
   margin-top: 50vh;
 }
+}
+
+
+#about-full-screen-overlay-wrapper {
+  display: none;
+  position: fixed; 
+  inset: 0;
+  background-color: rgba(0,0,0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+#about-description-container {
+  width: 50vw;
+  max-width: 700px; 
+  min-width: 280px;
+  padding: 1.5rem;
+  background-color: aliceblue;
+  border-radius: 8px;
+  height: max-content;
+}
+
+#about-description-container p1 {
+  font-size: clamp(1.4rem, 1.3vw, 2rem);
+}
+
+#about-description-container p3 {
+  font-size: clamp(1.1rem, 1.05vw, 1.4rem);
+  line-height: 1.6;
 }
