@@ -54,6 +54,7 @@ nav {
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap;
 }
 nav a {
   text-decoration: none;
@@ -65,37 +66,39 @@ nav a {
   margin-right: 20px;
   transition: color 0.3s ease;
 }
+.spacer {
+  flex: 1; /* default desktop */
+}
+
 /* NAV BUTTONS HIGHLIGHTED */
 nav a.active {
   color: white;
 }
+
+
+/*/MOBILE/*/
 @media screen and (max-width: 768px) {
-header{
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  height:30px;
-}
-.nav-bar-RUFUS-DESIGN {
-  display: none;
-}
-nav a {
-  font-size: 0.85rem;
-}
+  header {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 30px;
+  }
+  .nav-bar-RUFUS-DESIGN {
+    display: none;
+  }
+  nav a {
+    font-size: 0.7rem;
+  }
+  nav {
+    gap: 0.25rem; /* reduce space between links */
+    overflow-x: auto; /* allow horizontal scrolling if needed */
+  }
 }
 
-/* INDEX NAV */
-#index-header {
-  opacity: 0;
-}
-#index-header.active {
-  opacity: 1;
-  transition: ease 1s;
-  transition-delay: 0.3s;
-}
-#index-overview-button {
-  color: white;
-}
+
+
+
 
 /* PAGE TRANSITION */
 /* page-transition.css */
