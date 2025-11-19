@@ -117,11 +117,11 @@ function handleVideoEnd() {
 
       'item-D3': [
         { src: 'Images/ALL WORKS/**D_wako/wako-0.webp', artworktitle: '「wako」', caption: 'Slide 1/6' },
-        { src: 'Images/ALL WORKS/**D_wako/wako-0.webp', artworktitle: '「wako」', caption: 'Slide 2/6' },
-        { src: 'Images/ALL WORKS/**D_wako/wako-0.webp', artworktitle: '「wako」', caption: 'Slide 3/6' },
-        { src: 'Images/ALL WORKS/**D_wako/wako-0.webp', artworktitle: '「wako」', caption: 'Slide 4/6' },
-        { src: 'Images/ALL WORKS/**D_wako/wako-0.webp', artworktitle: '「wako」', caption: 'Slide 5/6' },
-        { src: 'Images/ALL WORKS/**D_wako/wako-0.webp', artworktitle: '「wako」', caption: 'Slide 6/6' },
+        { src: 'Images/ALL WORKS/**D_wako/wako-1.webp', artworktitle: '「wako」', caption: 'Slide 2/6' },
+        { src: 'Images/ALL WORKS/**D_wako/wako-2.webp', artworktitle: '「wako」', caption: 'Slide 3/6' },
+        { src: 'Images/ALL WORKS/**D_wako/wako-3.webp', artworktitle: '「wako」', caption: 'Slide 4/6' },
+        { src: 'Images/ALL WORKS/**D_wako/wako-4.webp', artworktitle: '「wako」', caption: 'Slide 5/6' },
+        { src: 'Images/ALL WORKS/**D_wako/wako-5.webp', artworktitle: '「wako」', caption: 'Slide 6/6' },
       ],
 
       'item-D4': [
