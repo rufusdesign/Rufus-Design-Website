@@ -64,8 +64,7 @@ section.hero {
   height: auto;
   margin-left: 1vh;
   margin-top: 2vh;
-  font-family: josephine;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   gap: 2vw;
 }
 .left-box-overview-top {
@@ -169,27 +168,30 @@ opacity:1;
 .grid-item:hover{
   cursor:pointer;
 }
+.grid-item h1 {
+
+    font-size: 0.6rem;
+    color: #000;
+    margin-bottom: 0.5vh;
+}
 .grid-item h5 {
   position: relative;
   bottom: 0;
   left: 0px;
   opacity: 0;
   transition: opacity 0.15s ease;
-  font-size: .6rem;
+  font-size: 0.6rem;
   color: #000000;
   pointer-events: none;
-  font-family: josephine;
+
 }
 .grid-item:hover h5 {
   opacity: 1;
 }
-.grid-item h1 {
-  /* display: none; just for now - I think it's quite obvious / draws attention more without the title displayed */
-    font-family: josephine;
-    font-size: 0.7rem;
-    color: #000;
-    margin-bottom: 0.5vh;
-}
+
+
+
+
 /* item text on mobile*/
 @media screen and (max-width: 768px) {
 
@@ -218,7 +220,9 @@ opacity:1;
   }
 }
 
-/*GALLERY*/
+
+
+/*GALLERY MODAL*/
 .gallery-modal {
   position: fixed;
   top: 0;
@@ -421,7 +425,7 @@ overflow-y: auto;
 }
 
 
-/* GALLERY THUMBNAILS */
+/* GALLERY MODAL THUMBNAILS */
 .thumbnail-strip {
   display: flex;
   gap: 0.5rem;
