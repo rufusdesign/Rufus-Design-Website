@@ -1,0 +1,129 @@
+/*/ GLOBAL STYLE /*/
+/*BODY*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Zen Kaku Gothic New', 'Josefin Sans', sans-serif;
+}
+body, html {
+  background: #ffffff;
+  color: #000;
+  overflow-x: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  margin: 0;
+  border:0;
+  overscroll-behavior: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+@font-face {
+    font-family: bicyclette;
+    src: url(Fonts/Bicyclette/fonnts.com-Bicyclette_Regular.otf);
+}
+@font-face {
+    font-family: america-extended-bold;
+    src: url(Fonts/GT-America/GT-America-Extended-Bold-Trial.otf);
+}
+@font-face {
+    font-family: america-standard-bold;
+    src: url(Fonts/GT-America/GT-America-Standard-Bold-Trial.otf);
+}
+@font-face {
+    font-family: josephine;
+    src: url(Fonts/Josefin_Sans/static/JosefinSans-Regular.ttf);
+}
+@font-face {
+    font-family: josephine-medium;
+    src: url(Fonts/Josefin_Sans/static/JosefinSans-Bold.ttf);
+}
+
+/*HEADER - NAV*/
+header {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(245,49,49);
+  z-index: 10000; /*one under the ham menu "overlay" screen*/
+}
+nav {
+  height:25px;
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: 'josephine', sans-serif;
+  margin-left: 5px;
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+.spacer {
+  flex: 1; /* default desktop */
+}
+
+/* NAV BUTTONS HIGHLIGHTED */
+nav a.active {
+  color: white;
+}
+
+
+/*/MOBILE/*/
+@media screen and (max-width: 768px) {
+  header {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 30px;
+  }
+  .nav-bar-RUFUS-DESIGN {
+    display: none;
+  }
+  nav a {
+    font-size: 0.7rem;
+  }
+  nav {
+    gap: 0.25rem; /* reduce space between links */
+    overflow-x: auto; /* allow horizontal scrolling if needed */
+  }
+}
+
+
+
+
+
+/* PAGE TRANSITION */
+/* page-transition.css */
+#page-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgb(245, 49, 49);
+  z-index: 9999;
+  pointer-events: none;
+  transform: translateY(0); /* start fully covering page */
+  transition: transform 0.8s cubic-bezier(0.85,0,0.15,1);
+  will-change: transform, opacity;
+}
+
+/* Slide down on page enter */
+#page-overlay.enter {
+  transform: translateY(100%);
+}
+
+/* Slide up on page exit */
+#page-overlay.exit {
+  transform: translateY(-.01%); /* makes the page go 99.99% of the way - the last 0.01% is not visible anyway */
+}

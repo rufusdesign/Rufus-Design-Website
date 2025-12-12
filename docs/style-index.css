@@ -1,0 +1,19 @@
+/* INDEX NAV */
+#index-header {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+#index-header.active {
+  opacity: 1;
+  transition-delay: 0s; /* remove delay */
+}
+
+
+#index-overview-button {
+  color: white;
+}
+
+
+
+

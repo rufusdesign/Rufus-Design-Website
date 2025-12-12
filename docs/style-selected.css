@@ -1,0 +1,106 @@
+#selected-body, html{
+background-color: white;
+margin: 0;
+height: 200vh;
+}
+
+#wrapper {
+  height: 100vh;
+  overflow: hidden;
+}
+#content {
+  position: relative;
+  min-height: 200vh; /* ensure there’s something to scroll */
+}
+
+.gallery-container {
+  align-items: stretch; 
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.thumbnails {
+  width: 100%;
+  height:auto;
+  display: flex;
+  justify-content: flex-start;  
+  align-items: flex-start;      
+  overflow-x: hidden;
+  padding: 1vh 1vh;
+}
+.thumbnails img {
+  width: 80px;    /* consistent thumbnail size */
+  height: auto;
+  margin-right: 8px;
+  object-fit: cover;
+}
+.main-artwork {
+  display: block;
+  position: fixed;
+  bottom: 1.5rem;
+  left: 0;
+  width: 100%;
+  padding: 1vh;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  background: transparent; /* or black if you want a backdrop */
+}
+.main-artwork img {
+  height: 60vh;
+  width: auto;
+  object-fit: contain;
+}
+.artwork-info {
+  display: block;
+  width: max-content;
+  height: auto;
+  font-family: josephine;
+  font-size: 0.7rem;
+  color: #000;
+  margin-bottom: 0.5vh;
+}
+
+@media (max-width: 768px) {
+  .thumbnails {
+    position: absolute;
+    bottom: 0;
+  }
+  .main-artwork {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    justify-content: flex-start;
+    padding-top: 1rem;
+  }
+
+  .artwork-info {
+    margin-bottom: 0.5rem;
+  }
+
+  .main-artwork img {
+    max-width: 90vw;
+    object-fit: contain;
+    margin-top: 0;
+  }
+}
+
+
+/* STAGGERED THUMBNAILS */
+.horizontal-thumbnail {
+  opacity: 0.6;
+  transform: translateY(-90px);
+  animation: slideDown 0.6s cubic-bezier(0.22, 0.3, 0.16, 1) forwards;
+}
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

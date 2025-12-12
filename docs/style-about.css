@@ -1,0 +1,257 @@
+body{
+background: white;
+color: black;
+}  
+
+/*HERO SECTION*/
+.about-hero {
+  position: relative;      /* needed for absolute centering of main text */
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;  /* stack children vertically */
+  align-items: stretch;    /* top row stretches full width */
+}
+.about-hero * {
+  font-family: 'josephine'; 
+  text-decoration: none;
+  color: black;
+}
+.about-hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+
+/* disable transitions while page is loading / content is injected */
+.preload .reveal__inner {
+  transition: none !important;
+  opacity: 0 !important;
+  transform: translateY(var(--reveal-offset)) !important;
+}
+
+
+/* REVEAL ANIMATIONS & DELAYS */
+:root{
+--reveal-offset: 6rem; /* how far text starts below */
+--reveal-duration: 700ms;
+--reveal-ease: cubic-bezier(1, 0.8, 0.2, 0.5);
+}
+/* The mask container: fixed height = height of content line(s) or set via CSS */
+.reveal {
+display:block;        /* shrinkwrap */
+overflow:hidden;      /* this creates the mask */
+line-height:1;
+}
+/* the element that moves up */
+.reveal__inner {
+display: block;
+transform: translateY(var(--reveal-offset));
+will-change: transform, opacity;
+opacity:0;
+transition: transform var(--reveal-duration) var(--reveal-ease),
+            opacity calc(var(--reveal-duration) / 1.4) var(--reveal-ease);
+}
+/* active state — when visible */
+.reveal.is-visible .reveal__inner {
+transform: translateY(0);
+opacity:1;
+}
+
+/* Main text lines */
+#about-main-text .reveal:nth-child(1) .reveal__inner { transition-delay: 0.1s; }
+#about-main-text .reveal:nth-child(2) .reveal__inner { transition-delay: 0.15s; }
+#about-main-text .reveal:nth-child(3) .reveal__inner { transition-delay: 0.2s; }
+#about-main-text .reveal:nth-child(4) .reveal__inner { transition-delay: 0.25s; }
+/* Number + email */
+#about-number-email-container .reveal:nth-child(1) .reveal__inner { transition-delay: 0.2s; }
+#about-number-email-container .reveal:nth-child(2) .reveal__inner { transition-delay: 0.25s; }
+/* SNS links */
+#about-sns-container .reveal:nth-child(1) .reveal__inner { transition-delay: 0.2s; }
+#about-sns-container .reveal:nth-child(2) .reveal__inner { transition-delay: 0.25s; }
+
+
+
+
+
+
+
+/* TOP ELEMENTS UNDERLINE */
+.about-hero-top a {
+  position: relative;
+  text-decoration: none;
+}
+.about-hero-top a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 3px;
+  background: black;
+  transform: scaleX(0);           /* hidden initially */
+  transform-origin: left;         /* grow from the left */
+  transition: transform 0.6s ease;
+}
+.about-hero-top a:hover::after {
+  transform: scaleX(1);           /* expands to full width */
+  transform-origin: left;
+}
+.about-hero-top a:not(:hover)::after {
+  transform: scaleX(0);           /* shrink away */
+  transform-origin: right;        /* collapses toward the right */
+}
+.about-number-email-content{
+  padding:3px;
+}
+@media (max-width: 768px) { 
+.about-hero-top {
+  margin-top: 40px;
+}
+}
+
+
+
+
+/*SNS TEXT*/
+.about-content {
+  font-size: 2rem;
+}
+#about-number-email-container {
+  margin-left:10px;
+}
+#about-number-email-container,
+#about-sns-container {
+  display: block;
+  gap: 1rem;
+  align-items: center;
+}
+#about-sns-container {
+  margin-right: 10vw;
+}
+#about-sns-container ul {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 2rem;
+}
+#about-sns-container li {
+  padding: 3px;
+}
+@media (max-width: 768px) { 
+.about-content {
+  font-size: 1rem;
+}
+#about-number-email-container {
+  margin-left:0;
+}
+#about-sns-container {
+  margin-right: 0;
+  justify-content: left;
+}
+}
+
+
+
+/* MAIN TEXT */
+#about-main-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 40%;
+}
+#about-main-text h1 {
+  font-size: 5vw;
+  margin: 0;
+}
+/* mobile */
+@media (max-width: 768px) {
+  #about-main-text {
+  width: 60%;
+}
+#about-main-text h1 { font-size: 8vw;}
+}
+
+
+
+
+/*ABOUT SEIKO CARTOON*/
+#about-seiko-cartoon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  bottom:0;
+}
+#about-seiko-cartoon img {
+  width: 13vw;
+  margin-top: 60vh;
+  cursor: pointer;
+}
+
+
+
+#about-full-screen-overlay-wrapper {
+  display: none;
+  position: fixed; 
+  inset: 0;
+  background-color: rgba(0,0,0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+#about-description-container {
+  width: 50vw;
+  max-width: 700px; 
+  min-width: 280px;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  height: max-content;
+}
+
+#about-description-container p1 {
+  font-size: clamp(1.4rem, 1.35vw, 2rem);
+}
+
+#about-description-container p3 {
+  font-size: clamp(1.1rem, 1.2vw, 1.4rem);
+  line-height: 1.6;
+}
+
+#about-description-container p4 {
+  font-size: clamp(0.8rem, 1vw, 1.4rem);
+  line-height: 1.6;
+}
+
+
+/* mobile */
+@media (max-width: 768px) { 
+#about-seiko-cartoon img {
+  width: 53vw;
+  margin-top: 50vh;
+}
+
+#about-description-container {
+    width: 80vw; /* almost full width on small screens */
+    padding: 1rem; /* a bit less padding for mobile */
+  }
+
+  #about-description-container p1 {
+    font-size: 3vh;
+  }
+
+  #about-description-container p3 {
+    font-size: 2vh;
+    
+  }
+
+  #about-description-container p4 {
+    font-size: 2vh;
+  }
+}
