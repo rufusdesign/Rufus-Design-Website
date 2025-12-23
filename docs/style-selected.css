@@ -1,57 +1,93 @@
-#selected-body, html{
-background-color: white;
-margin: 0;
-height: 200vh;
+/* ===============================
+   ROOT / PAGE SCROLL
+================================ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  overflow-x: hidden;
 }
 
-#wrapper {
-  height: 100vh;
-  overflow: hidden;
+/* Desktop-only scroll length */
+@media (min-width: 769px) {
+  html,
+  body {
+    height: 200vh;
+  }
 }
-#content {
+
+/* ===============================
+   MAIN CONTENT
+================================ */
+main#swup {
   position: relative;
-  min-height: 200vh; /* ensure there’s something to scroll */
+  min-height: 200vh;
 }
 
+/* ===============================
+   GALLERY CONTAINER
+================================ */
 .gallery-container {
-  align-items: stretch; 
   position: sticky;
   top: 0;
   height: 100vh;
+
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+
+  overflow: visible; 
 }
+
+/* ===============================
+   THUMBNAILS (HORIZONTAL SCROLL)
+================================ */
 .thumbnails {
   width: 100%;
-  height:auto;
   display: flex;
-  justify-content: flex-start;  
-  align-items: flex-start;      
-  overflow-x: hidden;
-  padding: 1vh 1vh;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+
+  padding: 1vh;
 }
+
 .thumbnails img {
-  width: 80px;    /* consistent thumbnail size */
+  width: 80px;
   height: auto;
   margin-right: 8px;
   object-fit: cover;
+
+  flex-shrink: 0;
 }
+
+/* ===============================
+   MAIN ARTWORK
+================================ */
 .main-artwork {
-  display: block;
   position: fixed;
   bottom: 1.5rem;
   left: 0;
   width: 100%;
+
   padding: 1vh;
   box-sizing: border-box;
-  justify-content: flex-start;
+
   background: transparent;
   overflow: hidden;
 }
+
 .main-artwork img {
   height: 60vh;
   width: auto;
   object-fit: contain;
+
   opacity: 0;
   clip-path: inset(100% 0 0 0);
   animation: revealUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -66,56 +102,62 @@ height: 200vh;
   }
 }
 
-
+/* ===============================
+   INFO
+================================ */
 .artwork-info {
-  display: block;
   width: max-content;
-  height: auto;
   font-family: josephine;
   font-size: 0.7rem;
   color: #000;
   margin-bottom: 0.5vh;
 }
 
+/* ===============================
+   MOBILE OVERRIDES
+================================ */
 @media (max-width: 768px) {
+
   .thumbnails {
     position: absolute;
     bottom: 0;
-  }
-  .main-artwork {
-    position: fixed;
-    top: 50px;
     left: 0;
-    width: 100%;
+  }
+
+  .main-artwork {
+    top: 50px;
+    bottom: auto;
+
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
     justify-content: flex-start;
+
     padding-top: 1rem;
+  }
+
+  .main-artwork img {
+    max-width: 75vw;
+    height: auto;
   }
 
   .artwork-info {
     margin-bottom: 0.5rem;
   }
-
-  .main-artwork img {
-    max-width: 90vw;
-    object-fit: contain;
-    margin-top: 0;
-  }
 }
 
-
-/* STAGGERED THUMBNAILS */
+/* ===============================
+   STAGGERED THUMBNAILS
+================================ */
 .horizontal-thumbnail {
   opacity: 0.6;
   transform: translateY(-90px);
   animation: slideDown 0.6s cubic-bezier(0.22, 0.3, 0.16, 1) forwards;
 }
+
 @keyframes slideDown {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
