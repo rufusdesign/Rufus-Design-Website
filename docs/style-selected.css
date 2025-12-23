@@ -8,6 +8,9 @@ body {
   background-color: white;
   overflow-x: hidden;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 
 /* Desktop-only scroll length */
 @media (min-width: 769px) {
@@ -32,40 +35,29 @@ main#swup {
   position: sticky;
   top: 0;
   height: 100vh;
-
   display: flex;
   flex-direction: column;
   align-items: stretch;
-
   overflow: visible; /* 🔑 critical for mobile */
 }
 
 /* ===============================
-   THUMBNAILS (HORIZONTAL SCROLL)
+   STAGGERED THUMBNAIL ANIMATION
 ================================ */
-.thumbnails {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-
-  overflow-x: auto;
-  overflow-y: hidden;
-
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-x;
-
-  padding: 1vh;
+.horizontal-thumbnail {
+  opacity: 0.6;
+  transform: translateY(-90px);
+  animation: slideDown 0.6s cubic-bezier(0.22, 0.3, 0.16, 1) forwards;
 }
 
-.thumbnails img {
-  width: 80px;
-  height: auto;
-  margin-right: 8px;
-  object-fit: cover;
-
-  flex-shrink: 0; /* 🔑 iOS fix */
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+
 
 /* ===============================
    MAIN ARTWORK
@@ -75,10 +67,8 @@ main#swup {
   bottom: 1.5rem;
   left: 0;
   width: 100%;
-
   padding: 1vh;
   box-sizing: border-box;
-
   background: transparent;
   overflow: hidden;
 }
@@ -87,7 +77,6 @@ main#swup {
   height: 60vh;
   width: auto;
   object-fit: contain;
-
   opacity: 0;
   clip-path: inset(100% 0 0 0);
   animation: revealUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -118,11 +107,7 @@ main#swup {
 ================================ */
 @media (max-width: 768px),
        (prefers-reduced-motion: reduce) {
-  .thumbnails {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
+
   .main-artwork {
     top: 50px;
     bottom: auto;
@@ -149,18 +134,47 @@ main#swup {
   }
 }
 
-/* ===============================
-   STAGGERED THUMBNAILS
-================================ */
-.horizontal-thumbnail {
-  opacity: 0.6;
-  transform: translateY(-90px);
-  animation: slideDown 0.6s cubic-bezier(0.22, 0.3, 0.16, 1) forwards;
+
+
+
+/*===================
+      THUMBNAILS
+=====================*/
+.thumbnails {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  overscroll-behavior: contain;
+
+  padding: 8px 12px;
 }
 
-@keyframes slideDown {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+.thumbnails img {
+  width: 80px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px),
+       (prefers-reduced-motion: reduce) {
+
+  .thumbnails {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    background: white;
+  }
+
+  .thumbnails,
+  .thumbnails * {
+    transform: translateY(0) !important;
   }
 }
