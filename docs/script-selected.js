@@ -6,33 +6,60 @@ thumb.style.animationDelay = `${i * 0.015}s`; // very small stagger
 
 
 
-// SELECTED HORIZONTAL + VERTICAL SIDEWAYS SCROLLING //
 const thumbRow = document.getElementById("thumbRow");
 const thumbs = document.querySelectorAll(".thumbnails img");
 const mainDisplay = document.getElementById("mainDisplay");
 
-
 // Smooth Horizontal Scroll Setup
 let targetScroll2 = thumbRow.scrollLeft;
 
-// Wheel scroll anywhere on page
+/* ===============================
+   MOBILE TOUCH SUPPORT
+================================ */
+let touchStartX = 0;
+let touchStartScroll = 0;
+
+thumbRow.addEventListener("touchstart", e => {
+    touchStartX = e.touches[0].clientX;
+    touchStartScroll = targetScroll2;
+}, { passive: true });
+
+thumbRow.addEventListener("touchmove", e => {
+    const touchX = e.touches[0].clientX;
+    const deltaX = touchStartX - touchX;
+
+    targetScroll2 = touchStartScroll + deltaX;
+    targetScroll2 = Math.max(
+        0,
+        Math.min(targetScroll2, thumbRow.scrollWidth - thumbRow.clientWidth)
+    );
+}, { passive: true });
+
+/* ===============================
+   DESKTOP WHEEL SUPPORT
+================================ */
 window.addEventListener("wheel", e => {
-    e.preventDefault();
-
-    // Combine vertical and horizontal wheel movement
-    targetScroll2 += e.deltaY + e.deltaX;
-
-    // Clamp to scrollable bounds
-    targetScroll2 = Math.max(0, Math.min(targetScroll2, thumbRow.scrollWidth - thumbRow.clientWidth));
+    if (window.innerWidth > 768) {
+        e.preventDefault();
+        targetScroll2 += e.deltaY + e.deltaX;
+        targetScroll2 = Math.max(
+            0,
+            Math.min(targetScroll2, thumbRow.scrollWidth - thumbRow.clientWidth)
+        );
+    }
 }, { passive: false });
 
-
-// Smooth easing animation
+/* ===============================
+   SMOOTH EASING LOOP
+================================ */
 function selectedSmoothScroll() {
-    thumbRow.scrollLeft += (targetScroll2 - thumbRow.scrollLeft) * 0.1; // ease factor
+    thumbRow.scrollLeft += (targetScroll2 - thumbRow.scrollLeft) * 0.1;
     requestAnimationFrame(selectedSmoothScroll);
 }
 selectedSmoothScroll();
+
+
+
 
 
 // Update Active Thumbnail
