@@ -1,6 +1,7 @@
 body{
 background: white;
 color: black;
+overscroll-behavior: none;
 }  
 
 /*HERO SECTION*/
