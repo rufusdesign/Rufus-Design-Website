@@ -1,7 +1,7 @@
 body{
 background: white;
 color: black;
-overscroll-behavior: none;
+position: fixed;
 }  
 
 ::-webkit-scrollbar {
