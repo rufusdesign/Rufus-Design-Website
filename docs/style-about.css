@@ -178,6 +178,7 @@ opacity:1;
 /* mobile */
 @media (max-width: 768px) {
   #about-main-text {
+    top: 40%;
     width: 60%;
   }
   #about-main-text h1 {
@@ -239,7 +240,7 @@ opacity:1;
 @media (max-width: 768px) {   
   #about-seiko-cartoon img {
     width: 53vw;
-    margin-top: 50vh;
+    margin-top: 40vh;
   }
   #about-description-container {
     width: 80vw; /* almost full width on small screens */
