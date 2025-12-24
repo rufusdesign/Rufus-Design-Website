@@ -4,6 +4,10 @@ color: black;
 overscroll-behavior: none;
 }  
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 /*HERO SECTION*/
 .about-hero {
   position: relative;      /* needed for absolute centering of main text */
