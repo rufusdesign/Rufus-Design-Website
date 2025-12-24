@@ -1,8 +1,8 @@
 body{
 background: white;
 color: black;
-position: fixed;
-}  
+overscroll-behavior: none;
+} 
 
 ::-webkit-scrollbar {
   display: none;
@@ -184,7 +184,7 @@ opacity:1;
 @media (max-width: 768px) {
   #about-main-text {
     top: 40%;
-    width: 60%;
+    width: 65%;
   }
   #about-main-text h1 {
     font-size: 8vw;
