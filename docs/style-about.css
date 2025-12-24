@@ -7,7 +7,7 @@ color: black;
 .about-hero {
   position: relative;      /* needed for absolute centering of main text */
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
   background-color: white;
   display: flex;
   flex-direction: column;  /* stack children vertically */
@@ -24,7 +24,12 @@ color: black;
   align-items: center;
   padding: 0.5rem;
 }
-
+/*mobile*/
+/* @media (max-width: 768px) { 
+  .about-hero {
+    height: 100svh;
+  }
+} */
 
 /* disable transitions while page is loading / content is injected */
 .preload .reveal__inner {
@@ -143,16 +148,16 @@ opacity:1;
   padding: 3px;
 }
 @media (max-width: 768px) { 
-.about-content {
-  font-size: 1rem;
-}
-#about-number-email-container {
-  margin-left:0;
-}
-#about-sns-container {
-  margin-right: 0;
-  justify-content: left;
-}
+  .about-content {
+    font-size: 1rem;
+  }
+  #about-number-email-container {
+    margin-left:0;
+  }
+  #about-sns-container {
+    margin-right: 0;
+    justify-content: left;
+  }
 }
 
 
@@ -173,9 +178,11 @@ opacity:1;
 /* mobile */
 @media (max-width: 768px) {
   #about-main-text {
-  width: 60%;
-}
-#about-main-text h1 { font-size: 8vw;}
+    width: 60%;
+  }
+  #about-main-text h1 {
+    font-size: 8vw;
+  }
 }
 
 
@@ -228,29 +235,22 @@ opacity:1;
   font-size: clamp(0.8rem, 1vw, 1.4rem);
   line-height: 1.6;
 }
-
-
 /* mobile */
-@media (max-width: 768px) { 
-#about-seiko-cartoon img {
-  width: 53vw;
-  margin-top: 50vh;
-}
-
-#about-description-container {
+@media (max-width: 768px) {   
+  #about-seiko-cartoon img {
+    width: 53vw;
+    margin-top: 50vh;
+  }
+  #about-description-container {
     width: 80vw; /* almost full width on small screens */
     padding: 1rem; /* a bit less padding for mobile */
   }
-
   #about-description-container p1 {
     font-size: 3vh;
   }
-
   #about-description-container p3 {
-    font-size: 2vh;
-    
+    font-size: 2vh; 
   }
-
   #about-description-container p4 {
     font-size: 2vh;
   }
