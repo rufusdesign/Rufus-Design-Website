@@ -6,8 +6,6 @@
 window.addEventListener("DOMContentLoaded", () => {
     const heroSection = document.querySelector(".hero");
     const heroDesktop = document.getElementById("hero-video-desktop");
-    const heroMobile = document.getElementById("hero-video-mobile");
-
     const hasPlayed = sessionStorage.getItem("videoPlayed");
     const transitionOverlay = document.querySelector(".transition-overlay");
 
@@ -37,7 +35,6 @@ if (hasPlayed) {
     sessionStorage.setItem("videoPlayed", "true");
 
     heroDesktop?.addEventListener("ended", handleVideoEnd);
-    heroMobile?.addEventListener("ended", handleVideoEnd);
 });
 
 
