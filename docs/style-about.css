@@ -11,13 +11,13 @@ height: fit-content;
 
 /*HERO SECTION*/
 .about-hero {
-  position: relative;      /* needed for absolute centering of main text */
+  position: relative;
   width: 100vw;
-  height: fit-content;
+  height: 100vh;          /* ← was fit-content */
   background-color: white;
   display: flex;
-  flex-direction: column;  /* stack children vertically */
-  align-items: stretch;    /* top row stretches full width */
+  flex-direction: column;
+  align-items: stretch;
 }
 .about-hero * {
   font-family: 'josephine'; 
