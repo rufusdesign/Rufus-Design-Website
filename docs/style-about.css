@@ -2,6 +2,7 @@ body{
 background: white;
 color: black;
 overscroll-behavior: none;
+height: fit-content;
 } 
 
 ::-webkit-scrollbar {
@@ -30,11 +31,12 @@ overscroll-behavior: none;
   padding: 0.5rem;
 }
 /*mobile*/
-/* @media (max-width: 768px) { 
+@media (max-width: 768px) { 
   .about-hero {
     height: 100svh;
+    overflow: hidden;
   }
-} */
+}
 
 /* disable transitions while page is loading / content is injected */
 .preload .reveal__inner {
@@ -196,14 +198,14 @@ opacity:1;
 
 /*ABOUT SEIKO CARTOON*/
 #about-seiko-cartoon {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  bottom:0;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
 #about-seiko-cartoon img {
   width: 13vw;
-  margin-top: 60vh;
   cursor: pointer;
 }
 
@@ -244,8 +246,7 @@ opacity:1;
 /* mobile */
 @media (max-width: 768px) {   
   #about-seiko-cartoon img {
-    width: 53vw;
-    margin-top: 40vh;
+    width: 53vw; /* keep your size */
   }
   #about-description-container {
     width: 80vw; /* almost full width on small screens */
