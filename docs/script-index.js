@@ -484,8 +484,13 @@ allItems.forEach(item => {
   if (id) {
   item.addEventListener('click', () => openGallery(id));
   }
+  window.history.pushState({ modalOpen: true }, '', window.location.href);
 });
 
+//remove active on popstate
+window.addEventListener('popstate', (event) =>  {
+     modal.classList.remove('active');
+  });
 
 // SHOW HEADER NAV BAR DELAY
 /* Utility to reveal header + grid with configurable outer delay
