@@ -71,17 +71,6 @@ showExitOverlay(callback) {
   // Animate overlay
   this.overlay.classList.remove("enter");
   this.overlay.classList.add("exit");
-
-  // Animate overlay down on back button
-  window.onpopstate = (event) => {
-  setTimeout(() => {
-    // Access the state object attached during pushState
-    if (event.state) {
-    this.overlay.classList.remove("exit");
-    this.overlay.classList.add("enter");
-    }
-  }, 0);
-};
   
   // Wait for overlay to finish before navigating
   const onEnd = () => {
@@ -91,5 +80,11 @@ showExitOverlay(callback) {
   this.overlay.addEventListener("transitionend", onEnd);
 }
 };
+
+   // Animate overlay down on back button
+   window.onpopstate = (event) =>  {
+   this.overlay.classList.remove("exit");
+   this.overlay.classList.add("enter");
+  };
 
 new PageTransition();
