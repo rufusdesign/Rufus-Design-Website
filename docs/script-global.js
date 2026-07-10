@@ -42,7 +42,7 @@ class PageTransition {
     window.onpopstate = (event) =>  {
     this.overlay.classList.remove("exit");
     this.overlay.classList.add("enter");
-  });
+  };
     this.bindInternalLinks(document);
   }
 
