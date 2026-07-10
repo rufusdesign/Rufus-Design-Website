@@ -491,9 +491,7 @@ allItems.forEach(item => {
 window.addEventListener('popstate', (event) =>  {
      modal.classList.remove('active');
   });
-const swup = new Swup({
-  animateHistoryBrowsing: false 
-});
+
 // SHOW HEADER NAV BAR DELAY
 /* Utility to reveal header + grid with configurable outer delay
    - delayMs: how long to wait before starting the reveal
