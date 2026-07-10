@@ -35,21 +35,12 @@ class PageTransition {
       requestAnimationFrame(() => this.overlay.classList.add("enter"));
     });
      // Animate overlay down on back button
-   window.addEventListener("popstate", () => {
-     requestAnimationFrame(() => this.overlay.classList.remove("exit"));
-     requestAnimationFrame(() => this.overlay.classList.add("enter"));
-    });
-    this.bindInternalLinks(document);
-  }
-  function openOverlay() {
-  history.pushState({ overlay: true }, '', '#page-overlay');
-  document.getElementById('page-overlay').classList.add('enter');
-}
 
 window.onpopstate = function(event) {
   if (event.state && event.state.overlay) {
     // Close the overlay without navigating away
     document.getElementById('page-overlay').classList.remove('exit');
+    document.getElementById('page-overlay').classList.add('enter');
   } else {
     // Allow standard Swup navigation
     history.back(); 
