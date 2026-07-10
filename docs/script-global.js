@@ -34,12 +34,6 @@ class PageTransition {
     window.addEventListener("load", () => {
       requestAnimationFrame(() => this.overlay.classList.add("enter"));
     });
-      // Animate overlay down on back button
-   window.onpopstate = function(event) {
-     document.getElementById('page-overlay').classList.remove('exit'); 
-     document.getElementById('page-overlay').classList.add('enter');
-    };
-    
   getPageRoot() {
     return document.getElementById("swup") || document.querySelector("main") || document.body;
   }
