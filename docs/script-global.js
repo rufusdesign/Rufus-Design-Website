@@ -36,8 +36,8 @@ class PageTransition {
     });
     // Animate overlay down on back button
    window.onpopstate = function(event) {
-     requestAnimationFrame(() => this.overlay.classList.remove("exit"));
-     requestAnimationFrame(() => this.overlay.classList.add("enter"));
+     document.getElementById('page-overlay').classList.remove('exit');
+     document.getElementById('page-overlay').classList.add('enter');
     }; 
      this.bindInternalLinks(document);
   }
