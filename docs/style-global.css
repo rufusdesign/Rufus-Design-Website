@@ -53,7 +53,7 @@ header {
   z-index: 10000; /*one under the ham menu "overlay" screen*/
 }
 nav {
-  height:25px;
+  height:40px;
   display: flex;
   gap: 2rem;
   width: 100%;
