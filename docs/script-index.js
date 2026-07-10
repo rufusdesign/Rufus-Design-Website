@@ -487,10 +487,13 @@ allItems.forEach(item => {
   window.history.pushState({ openGallery: true }, '', window.location.href);
 });
 
+// Back button
 window.addEventListener('popstate', (event) =>  {
      modal.classList.remove('active');
   });
-
+swup.on('popState', () => {
+  closeYourOverlayFunction(); 
+});
 // SHOW HEADER NAV BAR DELAY
 /* Utility to reveal header + grid with configurable outer delay
    - delayMs: how long to wait before starting the reveal
