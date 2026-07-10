@@ -37,8 +37,8 @@ class PageTransition {
     window.addEventListener("load", () => {
       requestAnimationFrame(() => this.overlay.classList.add("enter"));
     });
-    window.addEventListener('beforeunload', () =>  {
-    this.overlay.classList.remove("exit");
+    window.onpopstate = (event) =>  {
+   this.overlay.classList.remove("exit");
     this.overlay.classList.add("enter");
   });
     this.bindInternalLinks(document);
