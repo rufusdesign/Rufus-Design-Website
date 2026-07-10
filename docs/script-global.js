@@ -19,8 +19,11 @@
 // Run once on first load
   highlightNav();
 
-
-
+// Animate overlay down on back button
+   window.onpopstate = (event) =>  {
+   this.overlay.classList.remove("exit");
+   this.overlay.classList.add("enter");
+  };
 
 // PAGE TRANSITION //
 // page-transition.js
