@@ -488,7 +488,7 @@ allItems.forEach(item => {
 });
 
 // Back button
-window.addEventListener('popstate', (event) =>  {
+  window.onpopstate = (event) =>  {
      modal.classList.remove('active');
   });
 
