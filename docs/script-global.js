@@ -34,18 +34,12 @@ class PageTransition {
     window.addEventListener("load", () => {
       requestAnimationFrame(() => this.overlay.classList.add("enter"));
     });
-     // Animate overlay down on back button
-
-window.onpopstate = function(event) {
-  if (event.state && event.state.overlay) {
-    // Close the overlay without navigating away
-    document.getElementById('page-overlay').classList.remove('exit');
-    document.getElementById('page-overlay').classList.add('enter');
-  } else {
-    // Allow standard Swup navigation
-    history.back(); 
-  }
-};
+      // Animate overlay down on back button
+   window.onpopstate = function(event) {
+     requestAnimationFrame(() => this.overlay.classList.remove("exit"));
+     requestAnimationFrame(() => this.overlay.classList.add("enter"));
+    };
+    
   getPageRoot() {
     return document.getElementById("swup") || document.querySelector("main") || document.body;
   }
