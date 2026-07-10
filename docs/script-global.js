@@ -49,7 +49,7 @@ class PageTransition {
 window.onpopstate = function(event) {
   if (event.state && event.state.overlay) {
     // Close the overlay without navigating away
-    document.getElementById('my-overlay').classList.remove('is-open');
+    document.getElementById('page-overlay').classList.remove('exit');
   } else {
     // Allow standard Swup navigation
     history.back(); 
