@@ -484,7 +484,6 @@ allItems.forEach(item => {
   if (id) {
   item.addEventListener('click', () => openGallery(id));
   }
-  window.history.pushState({ openGallery: true }, '', window.location.href);
 });
 
 // Back button
