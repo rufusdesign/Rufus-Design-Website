@@ -488,9 +488,9 @@ allItems.forEach(item => {
  });
 
 // Back button
-  window.onpopstate = (event) =>  {
+   window.addEventListener('popstate', (event) => {
      modal.classList.remove('active');
-  };
+  });
 
 // SHOW HEADER NAV BAR DELAY
 /* Utility to reveal header + grid with configurable outer delay
