@@ -34,14 +34,14 @@ class PageTransition {
     window.addEventListener("load", () => {
       requestAnimationFrame(() => this.overlay.classList.add("enter"));
     });
+
+    this.bindInternalLinks(document);
+  }
     // Animate overlay down on back button
     window.onpopstate = (event) =>  {
     this.overlay.classList.remove("exit");
     this.overlay.classList.add("enter");
   };
-    this.bindInternalLinks(document);
-  }
-
   getPageRoot() {
     return document.getElementById("swup") || document.querySelector("main") || document.body;
   }
