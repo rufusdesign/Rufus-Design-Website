@@ -41,6 +41,20 @@ class PageTransition {
     });
     this.bindInternalLinks(document);
   }
+  function openOverlay() {
+  history.pushState({ overlay: true }, '', '#page-overlay');
+  document.getElementById('page-overlay').classList.add('enter');
+}
+
+window.onpopstate = function(event) {
+  if (event.state && event.state.overlay) {
+    // Close the overlay without navigating away
+    document.getElementById('my-overlay').classList.remove('is-open');
+  } else {
+    // Allow standard Swup navigation
+    history.back(); 
+  }
+};
   getPageRoot() {
     return document.getElementById("swup") || document.querySelector("main") || document.body;
   }
