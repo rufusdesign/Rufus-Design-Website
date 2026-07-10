@@ -37,11 +37,7 @@ class PageTransition {
 
     this.bindInternalLinks(document);
   }
-    // Animate overlay down on back button
-    window.onpopstate = (event) =>  {
-    this.overlay.classList.remove("exit");
-    this.overlay.classList.add("enter");
-  };
+
   getPageRoot() {
     return document.getElementById("swup") || document.querySelector("main") || document.body;
   }
@@ -76,6 +72,12 @@ showExitOverlay(callback) {
   this.overlay.classList.remove("enter");
   this.overlay.classList.add("exit");
 
+  // Animate overlay down on back button
+    window.onpopstate = (event) =>  {
+    this.overlay.classList.remove("exit");
+    this.overlay.classList.add("enter");
+  };
+  
   // Wait for overlay to finish before navigating
   const onEnd = () => {
     this.overlay.removeEventListener("transitionend", onEnd);
