@@ -213,6 +213,7 @@ opacity:1;
 @media (max-width: 768px) {   
   #about-seiko-cartoon {
   bottom: 3%;
+  padding-bottom: env(safe-area-inset-bottom);  
  }
 
 
