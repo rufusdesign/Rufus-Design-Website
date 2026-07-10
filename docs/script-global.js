@@ -35,10 +35,10 @@ class PageTransition {
       requestAnimationFrame(() => this.overlay.classList.add("enter"));
     });
      // Animate overlay down on back button
-    window.addEventListener("popstate", () => {
+    window.onpopstate = (event) =>  {
       requestAnimationFrame(() => this.overlay.classList.remove("exit"));
       requestAnimationFrame(() => this.overlay.classList.add("enter"));
-    });
+    };
     this.bindInternalLinks(document);
   }
 
