@@ -208,7 +208,11 @@ opacity:1;
   width: 13vw;
   cursor: pointer;
 }
-
+/* mobile */
+@media (max-width: 768px) {   
+  #about-seiko-cartoon {
+  bottom: 3%;
+ }
 
 
 #about-full-screen-overlay-wrapper {
