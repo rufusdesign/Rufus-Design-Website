@@ -41,7 +41,17 @@ class PageTransition {
     };
     this.bindInternalLinks(document);
   }
-
+window.addEventListener('popstate', (event) => {
+  // Check if our overlay state exists
+  if (event.state && event.state.overlay) {
+    // Hide the overlay
+    document.getElementById('page-overlay').classList.remove('exit');
+    document.getElementById('page-overlay').classList.add('enter');
+  } else {
+    // Let Swup handle normal page navigation for other states
+    swup.loadPage(); 
+  }
+});
   getPageRoot() {
     return document.getElementById("swup") || document.querySelector("main") || document.body;
   }
