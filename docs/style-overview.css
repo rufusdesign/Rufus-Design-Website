@@ -145,6 +145,7 @@ opacity:1;
 }
 .grid-item h1 {
   font-size: 0.6rem;
+  font-weight: normal;
   color: #000;
   margin-bottom: 0.5vh;
 }
@@ -156,6 +157,7 @@ opacity:1;
   opacity: 0;
   transition: opacity 0.15s ease;
   font-size: 0.6rem;
+  font-weight: normal;
   color: #000000;
   pointer-events: none;
 
