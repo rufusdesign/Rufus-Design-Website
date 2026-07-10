@@ -186,10 +186,10 @@ opacity:1;
 @media (max-width: 768px) {
   #about-main-text {
     top: 40%;
-    width: 65%;
+    width: 85%;
   }
   #about-main-text h1 {
-    font-size: 8vw;
+    font-size: 10vw;
   }
 }
 
