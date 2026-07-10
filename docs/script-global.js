@@ -35,23 +35,12 @@ class PageTransition {
       requestAnimationFrame(() => this.overlay.classList.add("enter"));
     });
      // Animate overlay down on back button
-    window.onpopstate = (event) =>  {
+   window.addEventListener('popstate', (event) => {
       requestAnimationFrame(() => this.overlay.classList.remove("exit"));
       requestAnimationFrame(() => this.overlay.classList.add("enter"));
     };
     this.bindInternalLinks(document);
   }
-  window.addEventListener('popstate', (event) => {
-  // Check if our overlay state exists
-  if (event.state && event.state.overlay) {
-    // Hide the overlay
-   this.overlay.classList.remove("exit");
-  this.overlay.classList.add("enter");
-  } else {
-    // Let Swup handle normal page navigation for other states
-    swup.loadPage(); 
-  }
-});
   getPageRoot() {
     return document.getElementById("swup") || document.querySelector("main") || document.body;
   }
