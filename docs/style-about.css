@@ -172,7 +172,7 @@ opacity:1;
 /* MAIN TEXT */
 #about-main-text {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -199,7 +199,7 @@ opacity:1;
 /*ABOUT SEIKO CARTOON*/
 #about-seiko-cartoon {
   position: absolute;
-  bottom: 0;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
 }
