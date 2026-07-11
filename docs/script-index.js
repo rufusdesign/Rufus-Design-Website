@@ -394,10 +394,10 @@ function handleVideoEnd() {
         { src: 'Images/ALL WORKS/**E_TakanoSalad/salad-book-5.webp', artworktitle: '「salad book」', caption: 'Slide 6/6' },
       ],
       'item-A41': [
-        { src: 'Images/ALL WORKS/**AYawaragi/JAL_1.jpg', artworktitle: '「yawaragi」', caption: 'Slide 1/4' },
-        { src: 'Images/ALL WORKS/**AYawaragi/JAL_2-1.webp', artworktitle: '「yawaragi」', caption: 'Slide 2/4' },
-        { src: 'Images/ALL WORKS/**AYawaragi/JAL_2-2.webp', artworktitle: '「yawaragi」', caption: 'Slide 3/4' },
-        { src: 'Images/ALL WORKS/**AYawaragi/JAL_2-3.webp', artworktitle: '「yawaragi」', caption: 'Slide 4/4' },
+        { src: 'Images/ALL WORKS/**A_Yawaragi/JAL_1.jpg', artworktitle: '「yawaragi」', caption: 'Slide 1/4' },
+        { src: 'Images/ALL WORKS/**A_Yawaragi/JAL_2-1.webp', artworktitle: '「yawaragi」', caption: 'Slide 2/4' },
+        { src: 'Images/ALL WORKS/**A_Yawaragi/JAL_2-2.webp', artworktitle: '「yawaragi」', caption: 'Slide 3/4' },
+        { src: 'Images/ALL WORKS/**A_Yawaragi/JAL_2-3.webp', artworktitle: '「yawaragi」', caption: 'Slide 4/4' },
       ],
       // Add more as needed...
 };
